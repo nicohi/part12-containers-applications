@@ -6,8 +6,10 @@ services:
       dockerfile: dev.Dockerfile
     volumes:
       - ./todo-frontend:/usr/src/app
-    ports:
-      - 3000:3000
+    #ports:
+    #  - 3000:3000
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8080/api
     container_name: hello-front-dev
   nginx:
     image: nginx:1.20.1
@@ -21,8 +23,8 @@ services:
       - server
   mongo:
     image: mongo
-    ports:
-      - 3456:27017
+    #ports:
+    #  - 3456:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
@@ -32,8 +34,8 @@ services:
       - ./todo-backend/mongo_data:/data/db
   redis:
     image: redis:7.0.12-alpine
-    ports:
-      - 6379:6379
+    #ports:
+    #  - 6379:6379
     command: ['redis-server', '--appendonly', 'yes']
     volumes:
       - ./todo-backend/redis_data:/data
@@ -44,8 +46,8 @@ services:
       dockerfile: dev.Dockerfile
     volumes:
       - ./todo-backend:/usr/src/app
-    ports:
-      - 4000:3000
+    #ports:
+    #  - 4000:3000
     environment:
       - REDIS_URL=redis://redis:6379
       - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database

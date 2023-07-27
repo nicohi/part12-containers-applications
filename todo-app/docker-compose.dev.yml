@@ -5,19 +5,20 @@ services:
       context: ./todo-frontend/
       dockerfile: dev.Dockerfile
     volumes:
-      - ./:/usr/src/app
+      - ./todo-frontend:/usr/src/app
     ports:
       - 3000:3000
     container_name: hello-front-dev
   nginx:
     image: nginx:1.20.1
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 8080:80
     container_name: reverse-proxy
     depends_on:
       - app
+      - server
   mongo:
     image: mongo
     ports:
@@ -42,7 +43,7 @@ services:
       context: ./todo-backend
       dockerfile: dev.Dockerfile
     volumes:
-      - ./:/usr/src/app
+      - ./todo-backend:/usr/src/app
     ports:
       - 4000:3000
     environment:

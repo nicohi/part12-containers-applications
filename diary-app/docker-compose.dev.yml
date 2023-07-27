@@ -1,0 +1,35 @@
+services:
+  app:
+    image: diary-front-dev
+    build:
+      context: ./diary-frontend/
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./diary-frontend:/usr/src/app
+    #ports:
+    #  - 3000:3000
+    #environment:
+    #  - REACT_APP_BACKEND_URL=http://localhost:8080/api
+    container_name: diary-front-dev
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse-proxy
+    depends_on:
+      - app
+      - server
+  server:
+    image: diary-back-dev
+    build:
+      context: ./diary-backend
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./diary-backend:/usr/src/app
+    #ports:
+    #  - 4000:3000
+    #environment:
+      #- REDIS_URL=redis://redis:6379
+      #- MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database

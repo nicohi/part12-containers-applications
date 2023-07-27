@@ -1,0 +1,10 @@
+Script started on 2023-07-27 18:20:02+03:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="236" LINES="20"]
+[?2004h> (reverse-i-search)`': [36@u': chmod [7mu[27m+x script-answers/mybash.shb': docker container run -it [7mub[27muntu bash[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@u': docker container run -it [7mubu[27m[23P> docker container run -it ubu
+[?2004l[?2004h]0;root@a95b3ef4b988: /root@a95b3ef4b988:/# mkdir [7m/usr/src/app[27m/usr/src/app
+[?2004l[?2004h]0;root@a95b3ef4b988: /root@a95b3ef4b988:/# touch [7m /usr/src/app/index.js[27m /usr/src/app/index.js[1P/usr/src/app/index.js
+[?2004l[?2004h]0;root@a95b3ef4b988: /root@a95b3ef4b988:/# [Kexit
+[?2004lexit
+[?2004h> [?2004l
+exit
+
+Script done on 2023-07-27 18:20:39+03:00 [COMMAND_EXIT_CODE="0"]
